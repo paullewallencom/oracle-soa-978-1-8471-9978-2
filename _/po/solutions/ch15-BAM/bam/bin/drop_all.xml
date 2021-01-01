@@ -1,0 +1,4 @@
+<OracleBAMCommands ContinueOnError="1">
+  <delete type="Report" match="/Training/End2End-105-POProcessing/*" />
+  <delete type="DataObject" match="/Training/End2End-105-POProcessing/*" />
+</OracleBAMCommands>

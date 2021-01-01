@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<faultPolicies xmlns="http://schemas.oracle.com/bpel/faultpolicy">
+  <faultPolicy version="2.0.1" 
+	       id="POProcessingFaults"
+               xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns="http://schemas.oracle.com/bpel/faultpolicy"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Conditions>
+      <!-- Step #1: Add your fault handler for remote fault here: -->
+      
+     <!-- Step #2: Add your fault handler for binding fault here: -->
+     
+     <!-- Step #3: Add your fault handler for mediator faults here: -->
+          
+    </Conditions>
+    
+    <Actions>
+      <!-- Step #4: Add the Action definition for handling mediator fauls using custom java here:-->
+      
+      <!-- Custom Java Handler: Logs the fault details to a log file -->
+      <Action id="my-java-handler">
+        <javaAction className="soatraining.faulthandling.MyFaultHandler"
+                    defaultAction="ora-terminate" propertySet="myProps">
+          <returnValue value="OK" ref="ora-rethrow-fault"/>
+        </javaAction>
+      </Action>
+      
+      <!-- Retry -->
+      <Action id="ora-retry">
+        <retry>
+          <retryCount>4</retryCount>
+          <retryInterval>2</retryInterval>
+          <exponentialBackoff/>
+        </retry>
+      </Action>
+      
+      <!-- Rethrow action -->
+      <Action id="ora-rethrow-fault">
+        <rethrowFault/>
+      </Action>
+      
+      <!-- Human Intervention -->
+      <Action id="ora-human-intervention">
+        <humanIntervention/>
+      </Action>
+      
+      <!-- Terminate -->
+      <Action id="ora-terminate">
+        <abort/>
+      </Action>
+      
+    </Actions>
+    
+    <!-- Property sets used by custom Java actions -->
+    <Properties>
+      <!-- Property set for MyFaultHandler customer java action -->
+      <propertySet name="myProps">
+        <property name="logFileName">myfaulthandler.log</property>
+        <property name="logFileDir">c:\po\log</property>
+      </propertySet>
+      
+      <!-- Step #5: Add new property set for MyFaultHandler for logging Mediator faults here:-->
+
+    </Properties>
+  </faultPolicy>
+</faultPolicies>

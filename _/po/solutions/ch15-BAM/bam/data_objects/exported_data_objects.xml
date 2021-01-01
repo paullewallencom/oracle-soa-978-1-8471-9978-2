@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<OracleBAMExport Version="2018">
+  <DataObject Version="14" Name="Orders" ID="_Orders1" Path="/Training/End2End-105-POProcessing" External="0">
+    <Layout>
+      <Description><![CDATA[Data object that contains purchase order data]]></Description>
+      <Column Name="Order ID" ID="_Order_ID" Type="string" MaxSize="30" Nullable="1" Public="1"/>
+      <Column Name="Customer ID" ID="_Customer_ID" Type="string" MaxSize="30" Nullable="1" Public="1"/>
+      <Column Name="Product Name" ID="_Product_Name" Type="string" MaxSize="50" Nullable="1" Public="1"/>
+      <Column Name="Item Type" ID="_Item_Type" Type="string" MaxSize="30" Nullable="1" Public="1"/>
+      <Column Name="Price" ID="_Price" Type="decimal" Scale="10" Nullable="1" Public="1"/>
+      <Column Name="Quantity" ID="_Quantity" Type="decimal" Scale="10" Nullable="1" Public="1"/>
+      <Column Name="Status" ID="_Status" Type="string" MaxSize="50" Nullable="1" Public="1"/>
+      <Column Name="Total" ID="_Total" Type="calculated" CalculatedExpression="&lt;expression type=&quot;MathExpression&quot;&gt;&lt;operation&gt;&lt;left&gt;&lt;type&gt;FieldID&lt;/type&gt;&lt;ivalue&gt;_Price&lt;/ivalue&gt;&lt;/left&gt;&lt;operator&gt;*&lt;/operator&gt;&lt;right&gt;&lt;type&gt;FieldID&lt;/type&gt;&lt;ivalue&gt;_Quantity&lt;/ivalue&gt;&lt;/right&gt;&lt;/operation&gt;&lt;/expression&gt;" ExpressionUserText="Price * Quantity"/>
+      <Column Name="Received Date" ID="_Received_Date" Type="timestamp" Nullable="0" Public="1"/>
+      <Indexes/>
+    </Layout>
+    <Contents/>
+  </DataObject>
+</OracleBAMExport>

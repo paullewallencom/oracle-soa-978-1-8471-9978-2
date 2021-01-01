@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TradingPartner hosted="true" id="tp_MyCompany" logoSO="/soa/b2b/seed/defaultSeededHostTpIcon.png" name="OracleServices" xmlns="http://xmlns.oracle.com/integration/b2b/profile">
+   <Identification id="ID1234" typeRef="/soa/b2b/types.xml#itype-Name" value="OracleServices"/>
+   <DeliveryChannel ackMode="None" active="false" compressed="false" id="CHANNEL_RbNZ-8787846569547006608" internal="false" listening="true" name="File_ListeningChannel" responseMode="None">
+      <ExchangeProtocolRef exchangeProtocolRef="/soa/b2b/seed/protocol.xml#Generic-File" id="EXCHG_PROTOCOL_REF_d-963112765756896606"/>
+      <TransportProtocolRef id="TRANSPORT_PROTOCOL_REF_tGv-8301618560922299688" transportProtocolRef="/soa/b2b/seed/protocol.xml#File">
+         <ParameterValue id="nw_param_val_TwL8528353689602861035" parameterRef="/soa/b2b/seed/protocol.xml#file-param-polling_interval" value="5"/>
+         <ParameterValue id="nw_param_val_xTU-2968089353207037792" parameterRef="/soa/b2b/seed/protocol.xml#file-param-folder" value="c:\orclsrvs_in"/>
+         <ParameterValue id="nw_param_val_mJWWA-6168817625984366423" parameterRef="/soa/b2b/seed/protocol.xml#file-param-filename_format"/>
+      </TransportProtocolRef>
+      <DigitalSecurity ackSigned="false" id="DIGITAL_SECURITY_n-2504496768787982520" messageEncrypted="false" messageSigned="false" transportSecured="false"/>
+   </DeliveryChannel>
+   <SupportedDocumentDefinition docDefName="PurchaseOrder_def" docProtocolName="Custom" docProtocolVersion="1.0" docTypeName="PurchaseOrder" documentDefinitionRef="/soa/b2b/doc_Custom.xml#NewDefinition-fz-5680882287211866211" id="SUPPORTED_DEFINITION_joRewG6565357878199315830_1" initiator="false"/>
+</TradingPartner>

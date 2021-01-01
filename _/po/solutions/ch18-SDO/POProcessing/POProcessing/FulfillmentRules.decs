@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="FulfillmentRules">
+    <ruleEngineProvider name="OracleRulesSDK" provider="Oracle_11.0.0.0.0">
+        <repository type="SCA-Archive">
+            <path>POProcessing/oracle/rules/fulfillmentrules/FulfillmentRules.rules</path>
+        </repository>
+    </ruleEngineProvider>
+    <decisionService targetNamespace="http://xmlns.oracle.com/FulfillmentRules/OracleRulesFulfillment" ruleEngineProviderReference="OracleRulesSDK" name="OracleRulesFulfillment">
+        <catalog>FulfillmentRules</catalog>
+        <pattern name="CallFunctionStateless">
+            <arguments>
+                <call>fulfillmentrules.FulfillmentRules.OracleRulesFulfillment</call>
+            </arguments>
+        </pattern>
+        <pattern name="CallFunctionStateful">
+            <arguments>
+                <call>fulfillmentrules.FulfillmentRules.OracleRulesFulfillment</call>
+            </arguments>
+        </pattern>
+    </decisionService>
+</decisionServices>

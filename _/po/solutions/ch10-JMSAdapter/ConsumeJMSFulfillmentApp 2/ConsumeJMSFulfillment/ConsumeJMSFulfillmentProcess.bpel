@@ -1,0 +1,84 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Fri Feb 13 12:34:58 PST 2009
+  Author:  hbuelow
+  Purpose: Empty BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="ConsumeJMSFulfillmentProcess"
+               targetNamespace="http://xmlns.oracle.com/ConsumeJMSFulfillmentApp/ConsumeJMSFulfillment/ConsumeJMSFulfillmentProcess"
+               xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+                xmlns:client="http://xmlns.oracle.com/ConsumeJMSFulfillmentApp/ConsumeJMSFulfillment/ConsumeJMSFulfillmentProcess"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+               xmlns:xpath20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+               xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer/"
+               xmlns:task="http://xmlns.oracle.com/bpel/workflow/task"
+               xmlns:taskservice="http://xmlns.oracle.com/bpel/workflow/taskService"
+               xmlns:wfcommon="http://xmlns.oracle.com/bpel/workflow/common"
+               xmlns:wf="http://schemas.oracle.com/bpel/extension/workflow"
+               xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+               xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+               xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+               xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/jms/ConsumeJMSFulfillmentApp/ConsumeJMSFulfillment/ReadJMSFulfillment%2F"
+         xmlns:ns2="http://xmlns.oracle.com/pcbpel/adapter/file/ConsumeJMSFulfillmentApp/ConsumeJMSFulfillment/WriteFileFulfillmentMessage%2F"
+         xmlns:ns3="http://xmlns.oracle.com/ns/fulfillment">
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      PARTNERLINKS                                                      
+      List of services participating in this BPEL process               
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  --> 
+  <partnerLinks>
+    <partnerLink myRole="Consume_Message_role" name="ReadJMSFulfillment"
+                 partnerLinkType="ns1:Consume_Message_plt"/>
+    <partnerLink name="WriteFileFulfillmentMessage" partnerRole="Write_role"
+                 partnerLinkType="ns2:Write_plt"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <variable name="Receive_JMS_Consume_Message_InputVariable"
+              messageType="ns1:Consume_Message_msg"/>
+    <variable name="Invoke_File_Write_InputVariable"
+              messageType="ns2:Write_msg"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+    <receive name="Receive_JMS" createInstance="yes"
+             variable="Receive_JMS_Consume_Message_InputVariable"
+             partnerLink="ReadJMSFulfillment"
+             portType="ns1:Consume_Message_ptt" operation="Consume_Message"/>
+    <assign name="Transform_JMS">
+      <bpelx:annotation>
+        <bpelx:pattern>transformation</bpelx:pattern>
+      </bpelx:annotation>
+      <copy>
+        <from expression="ora:processXSLT('xsl/Transformation_1.xsl',bpws:getVariableData('Receive_JMS_Consume_Message_InputVariable','body'))"/>
+        <to variable="Invoke_File_Write_InputVariable" part="body"/>
+      </copy>
+    </assign>
+    <invoke name="Invoke_File" inputVariable="Invoke_File_Write_InputVariable"
+            partnerLink="WriteFileFulfillmentMessage" portType="ns2:Write_ptt"
+            operation="Write"/>
+  </sequence>
+</process>

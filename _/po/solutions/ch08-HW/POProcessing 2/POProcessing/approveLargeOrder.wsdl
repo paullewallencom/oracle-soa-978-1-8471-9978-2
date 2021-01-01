@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="approveLargeOrder"
+             targetNamespace="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:client="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder"
+             xmlns:ns1="http://xmlns.oracle.com/ns/order"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	TYPE DEFINITION - List of services participating in this BPEL process
+	The default output of the BPEL designer uses strings as input and 
+	output to the BPEL Process. But you can define or import any XML 
+	Schema type and use them as part of the message types.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->   
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<import namespace="http://xmlns.oracle.com/ns/order" schemaLocation="xsd/internalorder.xsd" />
+		</schema>
+	</wsdl:types>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	MESSAGE TYPE DEFINITION - Definition of the message types used as 
+	part of the port type defintions
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->      
+	<wsdl:message name="approveLargeOrderRequestMessage">
+		<wsdl:part name="payload" element="ns1:Order" />
+	</wsdl:message>
+
+	<wsdl:message name="approveLargeOrderResponseMessage">
+		<wsdl:part name="payload" element="ns1:Order" />
+	</wsdl:message>
+
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	PORT TYPE DEFINITION - A port type groups a set of operations into
+	a logical service unit.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<!-- portType implemented by the approveLargeOrder BPEL process -->
+	<wsdl:portType name="approveLargeOrder">
+		<wsdl:operation name="process">
+			<wsdl:input message="client:approveLargeOrderRequestMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<!-- portType implemented by the requester of approveLargeOrder BPEL process
+	for asynchronous callback purposes
+	-->
+	<wsdl:portType name="approveLargeOrderCallback">
+		<wsdl:operation name="processResponse">
+			<wsdl:input message="client:approveLargeOrderResponseMessage"/>
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	PARTNER LINK TYPE DEFINITION
+	the approveLargeOrder partnerLinkType binds the provider and
+	requester portType into an asynchronous conversation.
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<plnk:partnerLinkType name="approveLargeOrder">
+		<plnk:role name="approveLargeOrderProvider">
+			<plnk:portType name="client:approveLargeOrder"/>
+		</plnk:role>
+		<plnk:role name="approveLargeOrderRequester">
+			<plnk:portType name="client:approveLargeOrderCallback"/>
+		</plnk:role>
+	</plnk:partnerLinkType>
+</wsdl:definitions>

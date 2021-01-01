@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Agreement agreementId="OS_MI_1000" id="tpa_nIP-590535138705116540" name="OracleService_MarketInc_Agr" xmlns="http://xmlns.oracle.com/integration/b2b/profile">
+   <SupportedDocumentType docDefName="PurchaseOrder_def" docProtocolName="Custom" docProtocolVersion="1.0" docTypeName="PurchaseOrder" documentDefinitionRef="/soa/b2b/doc_Custom.xml#NewDefinition-fz-5680882287211866211" id="docdef_TxjNfl-3555839675717551570">
+      <InitiatingParticipant id="par_bGvL8842677894417794169" supportedDocumentDefinitionRef="/soa/b2b/tp_kHnZnl-756857521412052451.xml#SUPPORTED_DEFINITION_kXRLnGP7132701848770007544_0" tradingPartnerRef="/soa/b2b/tp_kHnZnl-756857521412052451.xml#tp_kHnZnl-756857521412052451">
+         <Identifications>
+            <IdentificationRef id="idn_B3771803647100669463" identificationRef="/soa/b2b/tp_kHnZnl-756857521412052451.xml#tpIden_mS4331344792581605904" type="Name" value="MarketInc"/>
+         </Identifications>
+         <DeliveryChannels/>
+      </InitiatingParticipant>
+      <RespondingParticipant id="par_uOoP-7207270355859471989" supportedDocumentDefinitionRef="/soa/b2b/tp_MyCompany.xml#SUPPORTED_DEFINITION_joRewG6565357878199315830_1" tradingPartnerRef="/soa/b2b/tp_MyCompany.xml#tp_MyCompany">
+         <Identifications>
+            <IdentificationRef id="idn_S-8420668681065681003" identificationRef="/soa/b2b/tp_MyCompany.xml#ID1234" type="Name" value="OracleServices"/>
+         </Identifications>
+         <DeliveryChannels/>
+      </RespondingParticipant>
+      <AgrDocTypeParameterValues>
+         <ParameterValue id="nw_param_val_lYKAX-783010170114054057" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-validate" value="false"/>
+      </AgrDocTypeParameterValues>
+   </SupportedDocumentType>
+</Agreement>

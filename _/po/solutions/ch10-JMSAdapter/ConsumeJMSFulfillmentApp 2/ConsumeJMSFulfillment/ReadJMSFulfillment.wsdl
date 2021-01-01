@@ -1,0 +1,29 @@
+<wsdl:definitions
+     name="ReadJMSFulfillment"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/jms/ConsumeJMSFulfillmentApp/ConsumeJMSFulfillment/ReadJMSFulfillment%2F"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/jms/ConsumeJMSFulfillmentApp/ConsumeJMSFulfillment/ReadJMSFulfillment%2F"
+     xmlns:imp1="http://xmlns.oracle.com/ns/fulfillment"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+    >
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+             xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/jms/ConsumeJMSFulfillmentApp/ConsumeJMSFulfillment/ReadJMSFulfillment%2F"
+             xmlns:imp1="http://xmlns.oracle.com/ns/fulfillment" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+            <import namespace="http://xmlns.oracle.com/ns/fulfillment" schemaLocation="xsd/fulfillment.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="Consume_Message_msg">
+        <wsdl:part name="body" element="imp1:Fulfillment"/>
+    </wsdl:message>
+    <wsdl:portType name="Consume_Message_ptt">
+        <wsdl:operation name="Consume_Message">
+            <wsdl:input message="tns:Consume_Message_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <plt:partnerLinkType name="Consume_Message_plt">
+        <plt:role name="Consume_Message_role">
+            <plt:portType name="tns:Consume_Message_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+</wsdl:definitions>

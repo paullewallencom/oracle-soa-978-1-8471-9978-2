@@ -1,0 +1,17 @@
+<wsdl:definitions
+     name="getStatusByCC"
+     targetNamespace="http://oracle.com/sca/soapservice/CreditCardValidation/validationForCC/getStatusByCC"
+     xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="http://oracle.com/sca/soapservice/CreditCardValidation/validationForCC/getStatusByCC"
+     xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    >
+    <plnk:partnerLinkType name="getCreditCardStatus">
+        <plnk:role name="execute_ptt">
+            <plnk:portType name="tns:execute_ptt"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:import namespace="http://oracle.com/sca/soapservice/CreditCardValidation/validationForCC/getStatusByCC"
+         location="http://localhost:8001/soa-infra/services/default/validationForCC/getStatusByCC.wsdl"/>
+</wsdl:definitions>

@@ -1,0 +1,2 @@
+  <ICommand_Default_User_Name>weblogic</ICommand_Default_User_Name>
+  <ICommand_Default_Password>weblogic</ICommand_Default_Password>

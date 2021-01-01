@@ -1,0 +1,17 @@
+<business-event xmlns:ns1="http://schemas.oracle.com/events/edl/POEvents" xmlns="http://oracle.com/fabric/businessEvent">
+   <name>ns1:NewPO</name>
+   <id>e4196227-806c-4680-a6b4-6f8df931b3f3</id>
+   <content>
+      <PurchaseOrder xmlns="http://xmlns.oracle.com/ns/order">
+         <CustID>1111</CustID>
+         <ID>33412</ID>
+         <productName>Sony Bluray DVD Player</productName>
+         <itemType>Electronics</itemType>
+         <price>350</price>
+         <quantity>5</quantity>
+         <status>Initial</status>
+         <ccType>Mastercard</ccType>
+         <ccNumber>1234-1234-1234-1234</ccNumber>
+      </PurchaseOrder>
+   </content>
+</business-event>

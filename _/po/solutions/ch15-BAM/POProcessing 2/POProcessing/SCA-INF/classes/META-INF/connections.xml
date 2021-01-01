@@ -1,0 +1,39 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="BAMServerConnection1" className="oracle.tip.tools.ide.bam.rc.connection.BAMProviderImpl" credentialStoreKey="BAMServerConnection1" xmlns="">
+      <Factory className="oracle.tip.tools.ide.bam.rc.connection.BAMProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="USER_NAME">
+            <Contents>weblogic</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="WEBTIER_SERVER_PORT">
+            <Contents>9001</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="EnableAppFlag">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="BAM_SERVER_HOST">
+            <Contents>localhost</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="WEBTIER_SERVER">
+            <Contents>localhost</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="CONNECTION_NAME">
+            <Contents>BAMServerConnection1</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="BAM_SERVER_PORT">
+            <Contents>9001</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="BAM_WEBTIER_PROTOCOL">
+            <Contents>http</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="AppFlag">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="PASSWORD"/>
+         <StringRefAddr addrType="CONNECTION_MODE">
+            <Contents>BASIC</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>

@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<actions targetNamespace="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder" xmlns="http://xmlns.oracle.com/bpel/sensor" xmlns:tns="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder" xmlns:pc="http://xmlns.oracle.com/bpel/sensor">
+   <action name="PendingApprovalSensorAction" publishName="OracleBam" publishType="BAM" enabled="true">
+      <property name="bamTransform">bam/xsl/PendingApprovalSensorAction.xsl</property>
+      <property name="jcaFileName">bam/PendingApprovalSensorAction.jcabam</property>
+      <sensorName>PendingApprovalActivitySensor</sensorName>
+   </action>
+   <action name="CallbackSensorAction" publishName="OracleBam" publishType="BAM" enabled="true">
+      <property name="bamTransform">bam/xsl/CallbackSensorAction.xsl</property>
+      <property name="jcaFileName">bam/CallbackSensorAction.jcabam</property>
+      <sensorName>CallbackActivitySensor</sensorName>
+   </action>
+</actions>

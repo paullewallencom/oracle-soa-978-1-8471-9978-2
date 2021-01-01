@@ -1,0 +1,21 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.globalcompany.com/ns/OrderBooking/rules"
+     targetNamespace="http://www.globalcompany.com/ns/OrderBooking/rules" elementFormDefault="qualified">
+    <xsd:element name="discountandshipping">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="price" type="xsd:double"/>
+                <xsd:element name="shipping" type="xsd:double"/>
+                <xsd:element name="discount" type="xsd:int"/>
+                <xsd:element name="approvalRequired" type="xsd:boolean"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="price">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="price" type="xsd:double"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

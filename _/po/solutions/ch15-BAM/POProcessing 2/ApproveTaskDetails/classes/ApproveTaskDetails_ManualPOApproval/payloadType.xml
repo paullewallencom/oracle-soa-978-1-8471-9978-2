@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.54.7"
+          id="payloadType" Package="ApproveTaskDetails_ManualPOApproval"
+          BeanClass="ApproveTaskDetails_ManualPOApproval.payloadType"
+          isJavaBased="false">
+  <AccessorAttribute id="Order" IsCollection="true"
+                     BeanClass="ApproveTaskDetails_ManualPOApproval.OrderType"
+                     CollectionBeanClass="ApproveTaskDetails_ManualPOApproval.OrderType_Order_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="1"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Order"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="Order"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/ns/order"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

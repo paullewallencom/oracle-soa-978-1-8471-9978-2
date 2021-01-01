@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<DocumentProtocol custom="true" id="doc_Custom" implementationClass="oracle.tip.b2b.document.custom.CustomDocumentPlugin" name="Custom" xmlns="http://xmlns.oracle.com/integration/b2b/profile">
+   <DocumentProtocolVersion id="NewVersion-EAWAw1357730723188229060" name="1.0">
+      <DocumentType id="NewDocumentType-YTbDCR1565756708971472498" name="PurchaseOrder">
+         <DocumentDefinition customFileType="true" default="false" definitionFileName="/soa/b2b/Custom/1.0/PurchaseOrder/PurchaseOrder_def/po.xsd" definitionMO="/soa/b2b/Custom/1.0/PurchaseOrder/PurchaseOrder_def/po.xsd" id="NewDefinition-fz-5680882287211866211" modifiedTimestamp="2009-05-04T13:28:23.003-07:00" name="PurchaseOrder_def" useDefaultDefinition="true">
+            <ParameterValue id="nw_param_val_w-3768102779053487684" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-IdentificationExpression" value="//*[local-name()='PurchaseOrder']"/>
+            <ParameterValue id="nw_param_val_PpHqCq-5281322770337868108" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-IdentificationExpressionValue"/>
+            <ParameterValue id="nw_param_val_g427075833973516875" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-DTDXSDNamespaceConversion" value="None"/>
+            <ParameterValue id="nw_param_val_VtMLx-5379732270399749039" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-IdentificationStartPosition"/>
+            <ParameterValue id="nw_param_val_pit3601331454519474371" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-IdentificationEndPosition"/>
+            <ParameterValue id="nw_param_val_I635555142948885375" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-FlatIdentificationExpressionValue"/>
+            <ParameterValue id="nw_param_val_A9096147823836329805" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-DocumentRoutingID" value="PurchaseOrder10"/>
+            <ParameterValue id="nw_param_val_W2963477505025462011" parameterRef="/soa/b2b/seed/protocol.xml#common-param-XPathName1" value="XPathName1"/>
+            <ParameterValue id="nw_param_val_H-8137345297232775928" parameterRef="/soa/b2b/seed/protocol.xml#common-param-XPathExpression1"/>
+            <ParameterValue id="nw_param_val_otn6663716917189616261" parameterRef="/soa/b2b/seed/protocol.xml#common-param-XPathName2" value="XPathName2"/>
+            <ParameterValue id="nw_param_val_UlH-981404096068243696" parameterRef="/soa/b2b/seed/protocol.xml#common-param-XPathExpression2"/>
+            <ParameterValue id="nw_param_val_n-7526931072881713277" parameterRef="/soa/b2b/seed/protocol.xml#common-param-XPathName3" value="XPathName3"/>
+            <ParameterValue id="nw_param_val_Z670610276631003939" parameterRef="/soa/b2b/seed/protocol.xml#common-param-XPathExpression3"/>
+            <ParameterValue id="nw_param_val_DQaV-3299801282100158000" parameterRef="/soa/b2b/seed/protocol.xml#common-param-CorrelationFromXPathName" value="CorrelationFromXPathName"/>
+            <ParameterValue id="nw_param_val_hDO2275351343748070390" parameterRef="/soa/b2b/seed/protocol.xml#common-param-CorrelationFromXPathXPR"/>
+            <ParameterValue id="nw_param_val_RJvjR3343839802944134283" parameterRef="/soa/b2b/seed/protocol.xml#common-param-CorrelationToXPathName" value="CorrelationToXPathName"/>
+            <ParameterValue id="nw_param_val_ugwtB-1982861027904168465" parameterRef="/soa/b2b/seed/protocol.xml#common-param-CorrelationToXPathXPR"/>
+         </DocumentDefinition>
+         <ParameterValue id="nw_param_val_q-4345171339439431097" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-ActionName"/>
+         <ParameterValue id="nw_param_val_OpGPao7196828158316190367" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-Service"/>
+         <ParameterValue id="nw_param_val_W7646101822138289990" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-ServiceType"/>
+         <ParameterValue id="nw_param_val_lyAryR4294562103629182793" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-FromRole"/>
+         <ParameterValue id="nw_param_val_gccPu-3630372710836129688" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-ToRole"/>
+         <ParameterValue id="nw_param_val_ecugH8862179867140296040" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-binaryCollaboration"/>
+         <ParameterValue id="nw_param_val_s2154536484970260825" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-businessTransactionActivity"/>
+         <ParameterValue id="nw_param_val_q2871085177464740389" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-timeToAcknowledgeAcceptance"/>
+         <ParameterValue id="nw_param_val_wfF7352745796160446644" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-timeToPerform"/>
+         <ParameterValue id="nw_param_val_GI3410531635855740456" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-isIntelligibleCheckRequired"/>
+         <ParameterValue id="nw_param_val_vopWB-1007573124741511922" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-isAuthorizationRequired"/>
+      </DocumentType>
+   </DocumentProtocolVersion>
+</DocumentProtocol>

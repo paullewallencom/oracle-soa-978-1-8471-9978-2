@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.54.7"
+          id="OrderType" Package="ApproveTaskDetails_ManualPOApproval"
+          BeanClass="ApproveTaskDetails_ManualPOApproval.OrderType"
+          isJavaBased="false">
+  <Attribute Name="customerId" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="nextSibling" Value="orderId"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Customer Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="customerId"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="type" Value="string"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="orderId" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="nextSibling" Value="prodName"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Order Id"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="orderId"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="type" Value="string"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="prodName" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="nextSibling" Value="itemType"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Prod Name"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="prodName"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="type" Value="string"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="itemType" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="nextSibling" Value="price"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Item Type"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="itemType"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="type" Value="string"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="price" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="nextSibling" Value="qty"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Price"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="price"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="type" Value="string"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="qty" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="nextSibling" Value="status"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Qty"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="qty"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="type" Value="string"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="status" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="nextSibling" Value="creditCardInfo"/>
+        <Property Name="minOccurs" Value="0"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Status"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="status"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="type" Value="string"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute id="creditCardInfo" IsCollection="true"
+                     BeanClass="ApproveTaskDetails_ManualPOApproval.ccInfo"
+                     CollectionBeanClass="ApproveTaskDetails_ManualPOApproval.ccInfo_creditCardInfo_Operations">
+    <Properties>
+      <Property Name="minOccurs" Value="0"/>
+      <Property Name="maxOccurs" Value="1"/>
+      <Property Name="LABEL" Value="Credit Card Info"/>
+      <Property Name="nillable" Value="false"/>
+      <Property Name="originalName" Value="creditCardInfo"/>
+      <Property Name="targetNamespace"
+                Value="http://xmlns.oracle.com/ns/order"/>
+    </Properties>
+  </AccessorAttribute>
+</JavaBean>

@@ -1,0 +1,12 @@
+<adapter-config name="ReadJMSFulfillment" adapter="Jms Adapter" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/Queue/demo" UIConnectionName="IntegratedWLSConnection" UIJmsProvider="WLSJMS" adapterRef=""/>
+  <endpoint-activation portType="Consume_Message_ptt" operation="Consume_Message">
+    <activation-spec className="oracle.tip.adapter.jms.inbound.JmsConsumeActivationSpec">
+      <property name="DestinationName" value="jms/demoFulfillmentQueue"/>
+      <property name="UseMessageListener" value="false"/>
+      <property name="PayloadType" value="TextMessage"/>
+    </activation-spec>
+  </endpoint-activation>
+
+</adapter-config>

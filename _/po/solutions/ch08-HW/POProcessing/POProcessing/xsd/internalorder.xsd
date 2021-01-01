@@ -1,0 +1,23 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.oracle.com/ns/order"
+     xmlns:po="http://xmlns.oracle.com/ns/order" elementFormDefault="qualified">
+    <element name="Order" type="po:OrderType"/>
+    <complexType name="OrderType">
+        <sequence>
+            <element name="customerId" type="string"/>
+            <element name="orderId" type="string"/>
+            <element name="prodName" type="string" minOccurs="0"/>
+            <element name="itemType" type="string" minOccurs="0"/>
+            <element name="price" type="decimal" minOccurs="0"/>
+            <element name="qty" type="decimal" minOccurs="0"/>
+            <element name="status" type="string" minOccurs="0"/>
+            <element name="creditCardInfo" type="po:ccInfo" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="ccInfo">
+        <sequence>
+            <element name="cardNumber" type="string"/>
+            <element name="cardType" type="string"/>
+        </sequence>
+    </complexType>
+</schema>

@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<sensors targetNamespace="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder" xmlns="http://xmlns.oracle.com/bpel/sensor" xmlns:tns="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder" xmlns:pc="http://xmlns.oracle.com/bpel/sensor" xmlns:ns2="http://xmlns.oracle.com/ns/order">
+   <sensor sensorName="PendingApprovalActivitySensor" classname="oracle.tip.pc.services.reports.dca.agents.BpelActivitySensorAgent" kind="activity" target="assignCCNumber">
+      <activityConfig evalTime="completion">
+         <variable outputDataType="OrderType" outputNamespace="http://xmlns.oracle.com/ns/order" target="$outputVariable/payload/ns2:Order"/>
+      </activityConfig>
+   </sensor>
+   <sensor sensorName="CallbackActivitySensor" classname="oracle.tip.pc.services.reports.dca.agents.BpelActivitySensorAgent" kind="activity" target="callbackClient">
+      <activityConfig evalTime="activation">
+         <variable outputDataType="OrderType" outputNamespace="http://xmlns.oracle.com/ns/order" target="$outputVariable/payload/ns2:Order"/>
+      </activityConfig>
+   </sensor>
+</sensors>

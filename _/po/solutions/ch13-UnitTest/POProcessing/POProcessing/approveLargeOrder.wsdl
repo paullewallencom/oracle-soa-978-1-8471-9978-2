@@ -1,0 +1,48 @@
+<wsdl:definitions
+     name="approveLargeOrder"
+     targetNamespace="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder"
+     xmlns:ns2="http://www.globalcompany.com/ns/OrderBooking/rules"
+     xmlns:ns1="http://xmlns.oracle.com/ns/order"
+     xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:client="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="approveLargeOrder">
+        <plnk:role name="approveLargeOrderProvider">
+            <plnk:portType name="client:approveLargeOrder"/>
+        </plnk:role>
+        <plnk:role name="approveLargeOrderRequester">
+            <plnk:portType name="client:approveLargeOrderCallback"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://www.globalcompany.com/ns/OrderBooking/rules"
+             xmlns:ns1="http://xmlns.oracle.com/ns/order" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:client="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <import namespace="http://xmlns.oracle.com/ns/order" schemaLocation="xsd/internalorder.xsd"/>
+        </schema>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://www.globalcompany.com/ns/OrderBooking/rules"
+             xmlns:ns1="http://xmlns.oracle.com/ns/order" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+             xmlns:client="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <xsd:import namespace="http://www.globalcompany.com/ns/OrderBooking/rules" schemaLocation="xsd/OrderBookingDiscount.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="approveLargeOrderResponseMessage">
+        <wsdl:part name="payload" element="ns1:Order"/>
+    </wsdl:message>
+    <wsdl:message name="approveLargeOrderRequestMessage">
+        <wsdl:part name="payload" element="ns1:Order"/>
+    </wsdl:message>
+    <wsdl:portType name="approveLargeOrderCallback">
+        <wsdl:operation name="processResponse">
+            <wsdl:input message="client:approveLargeOrderResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="approveLargeOrder">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:approveLargeOrderRequestMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

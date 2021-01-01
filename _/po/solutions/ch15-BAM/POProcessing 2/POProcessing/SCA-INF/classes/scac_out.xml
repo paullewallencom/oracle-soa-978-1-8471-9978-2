@@ -1,0 +1,23 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Faults>
+   <Fault>
+      <severity>WARNING</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>ManualPOApproval.task</file>
+      <msg>
+         <![CDATA[Task owner not specified]]>
+      </msg>
+   </Fault>
+   <Fault>
+      <severity>WARNING</severity>
+      <loc/>
+      <line/>
+      <col/>
+      <file>ManualPOApproval.task</file>
+      <msg>
+         <![CDATA[Error assignee not specified]]>
+      </msg>
+   </Fault>
+</Faults>

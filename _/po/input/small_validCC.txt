@@ -1,0 +1,15 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Body xmlns:ns1="http://xmlns.oracle.com/ns/order">
+        <ns1:PurchaseOrder>
+            <ns1:CustID>1111</ns1:CustID>
+            <ns1:ID>SMALL1-VALID</ns1:ID>
+            <ns1:productName>iPod Shuffle</ns1:productName>
+            <ns1:itemType>Electronics</ns1:itemType>
+            <ns1:price>100.99</ns1:price>
+            <ns1:quantity>3</ns1:quantity>
+            <ns1:status>Initial</ns1:status>
+            <ns1:ccType>Mastercard</ns1:ccType>
+            <ns1:ccNumber>8765-8765-8765-8765</ns1:ccNumber>
+        </ns1:PurchaseOrder>
+    </soap:Body>
+</soap:Envelope>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.54.7"
+          id="ccInfo" Package="ApproveTaskDetails_ManualPOApproval"
+          BeanClass="ApproveTaskDetails_ManualPOApproval.ccInfo"
+          isJavaBased="false">
+  <Attribute Name="cardNumber" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="nextSiblingNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="nextSibling" Value="cardType"/>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Card Number"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="cardNumber"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="type" Value="string"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+  <Attribute Name="cardType" Type="java.lang.String">
+    <Properties>
+      <CustomProperties>
+        <Property Name="minOccurs" Value="1"/>
+        <Property Name="maxOccurs" Value="1"/>
+        <Property Name="LABEL" Value="Card Type"/>
+        <Property Name="LeafElement_hint" Value="LeafElement_no_attribute"/>
+        <Property Name="nillable" Value="false"/>
+        <Property Name="originalName" Value="cardType"/>
+        <Property Name="targetNamespace"
+                  Value="http://xmlns.oracle.com/ns/order"/>
+        <Property Name="type" Value="string"/>
+      </CustomProperties>
+    </Properties>
+  </Attribute>
+</JavaBean>

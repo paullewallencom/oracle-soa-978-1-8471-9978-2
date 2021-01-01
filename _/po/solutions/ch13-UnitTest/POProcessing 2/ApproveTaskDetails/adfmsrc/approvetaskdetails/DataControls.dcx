@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration"
+                    version="11.1.1.54.7" id="DataControls"
+                    Package="approvetaskdetails">
+  <AdapterDataControl id="ApproveTaskDetails_ManualPOApproval"
+                      FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.bpel.services.datacontrol.XSDDataControlDefinition"
+                      SupportsTransactions="true" SupportsSortCollection="false"
+                      SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="false"
+                      Definition="ApproveTaskDetails_ManualPOApproval"
+                      BeanClass="ApproveTaskDetails_ManualPOApproval"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <XSDDataControl xmlns="http://xmlns.oracle.com/bpel/workflow/task"
+                      SchemaLocation="file:/C:/po/POProcessing/POProcessing/xsd/ManualPOApprovalWorkflowTask.xsd"
+                      RootElement="task"
+                      rootelementnamespace="http://xmlns.oracle.com/bpel/workflow/task"
+                      taskLoc="file:/C:/po/POProcessing/POProcessing/ManualPOApproval.task"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TradingPartner hosted="false" id="tp_kHnZnl-756857521412052451" logoSO="/soa/b2b/seed/defaultSeededTpIcon.png" name="MarketInc" xmlns="http://xmlns.oracle.com/integration/b2b/profile">
+   <Identification id="tpIden_mS4331344792581605904" typeRef="/soa/b2b/types.xml#itype-Name" value="MarketInc"/>
+   <SupportedDocumentDefinition docDefName="PurchaseOrder_def" docProtocolName="Custom" docProtocolVersion="1.0" docTypeName="PurchaseOrder" documentDefinitionRef="/soa/b2b/doc_Custom.xml#NewDefinition-fz-5680882287211866211" id="SUPPORTED_DEFINITION_kXRLnGP7132701848770007544_0" initiator="true">
+      <DocumentTypeParameterValues>
+         <ParameterValue id="DOCUMENT_TYPE_PARAMETER_qREip-6129288137409556645" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-ActionName"/>
+         <ParameterValue id="DOCUMENT_TYPE_PARAMETER_KWsc-8969675912310076332" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-Service"/>
+         <ParameterValue id="DOCUMENT_TYPE_PARAMETER_s3896587801424579161" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-ServiceType"/>
+         <ParameterValue id="DOCUMENT_TYPE_PARAMETER_pio-3310927968013096713" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-FromRole"/>
+         <ParameterValue id="DOCUMENT_TYPE_PARAMETER_viom5893757784744443386" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-ToRole"/>
+         <ParameterValue id="DOCUMENT_TYPE_PARAMETER_R2955067495141106972" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-binaryCollaboration"/>
+         <ParameterValue id="DOCUMENT_TYPE_PARAMETER_dqB-5296592162142459347" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-businessTransactionActivity"/>
+         <ParameterValue id="DOCUMENT_TYPE_PARAMETER_qW7823450165395186095" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-timeToAcknowledgeAcceptance"/>
+         <ParameterValue id="DOCUMENT_TYPE_PARAMETER_bVrPnn-1992141244890399803" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-timeToPerform"/>
+         <ParameterValue id="DOCUMENT_TYPE_PARAMETER_eIGx-1229294907739721053" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-isIntelligibleCheckRequired"/>
+         <ParameterValue id="DOCUMENT_TYPE_PARAMETER_aSVUg-5383132776165668570" parameterRef="/soa/b2b/seed/protocol.xml#custom-param-CPA-isAuthorizationRequired"/>
+      </DocumentTypeParameterValues>
+   </SupportedDocumentDefinition>
+</TradingPartner>

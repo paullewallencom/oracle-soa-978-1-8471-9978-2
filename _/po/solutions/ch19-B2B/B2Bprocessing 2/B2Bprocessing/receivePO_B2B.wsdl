@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="receivePO_B2B" xmlns="http://schemas.xmlsoap.org/wsdl/"  xmlns:tns="http://www.oracle.com/integration/b2b/receivePO_B2B/" xmlns:ns1="http://xmlns.oracle.com/ns/order" targetNamespace="http://www.oracle.com/integration/b2b/receivePO_B2B/" xmlns:b2bconfig="http://xmlns.oracle.com/pcbpel/wsdl/b2b/config/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+	<types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<import namespace="http://xmlns.oracle.com/ns/order" schemaLocation="xsd/Custom/1.0/PurchaseOrder/PurchaseOrder_def/po.xsd"/>
+		</schema>
+	</types>
+	<message name="B2BMsg">
+		<part name="body" element="ns1:PurchaseOrder"/>
+	</message>
+	<portType name="B2B_receive_ptt">
+		<operation name="receive">
+			<b2bconfig:parameters
+				UIPort="8001"
+				UIDocRef="Custom--1.0--PurchaseOrder--PurchaseOrder_def"
+				UIConnectionName="MyAppServerConnection">
+			</b2bconfig:parameters>
+			<input message="tns:B2BMsg"/>
+		</operation>
+	</portType>
+
+	<plt:partnerLinkType name="B2B_receive_plt">
+		<plt:role name="receive_role">
+			<plt:portType name="tns:B2B_receive_ptt"/>
+		</plt:role>
+	</plt:partnerLinkType>
+</definitions>

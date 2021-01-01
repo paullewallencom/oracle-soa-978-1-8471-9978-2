@@ -1,0 +1,21 @@
+<?binding.jca OrdersBAMAdapter_bam.jca?>
+<wsdl:definitions name="OrdersBAMAdapter" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/bam/POProcessing/POProcessing/OrdersBAMAdapter%2F" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/bam/POProcessing/POProcessing/OrdersBAMAdapter%2F" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:imp1="http://xmlns.oracle.com/bam" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/">
+    <plt:partnerLinkType name="writetoBAM_plt">
+        <plt:role name="writetoBAM_role">
+            <plt:portType name="tns:writetoBAM_ptt"/>
+        </plt:role>
+    </plt:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="http://xmlns.oracle.com/bam" schemaLocation="xsd/BAMServerConnection1_Training_POProcessing_Orders.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="_Orders1Collection_msg">
+        <wsdl:part name="_Orders1Collection" element="imp1:_Orders1Collection"/>
+    </wsdl:message>
+    <wsdl:portType name="writetoBAM_ptt">
+        <wsdl:operation name="writetoBAM">
+            <wsdl:input message="tns:_Orders1Collection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

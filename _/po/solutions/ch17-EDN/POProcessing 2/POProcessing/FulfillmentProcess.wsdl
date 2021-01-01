@@ -1,0 +1,40 @@
+<wsdl:definitions
+     name="FulfillmentProcess"
+     targetNamespace="http://xmlns.oracle.com/POProcessing/POProcessing/FulfillmentProcess"
+     xmlns:ns1="http://xmlns.oracle.com/ns/fulfillment"
+     xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:client="http://xmlns.oracle.com/POProcessing/POProcessing/FulfillmentProcess"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+    <plnk:partnerLinkType name="FulfillmentProcess">
+        <plnk:role name="FulfillmentProcessProvider">
+            <plnk:portType name="client:FulfillmentProcess"/>
+        </plnk:role>
+        <plnk:role name="FulfillmentProcessRequester">
+            <plnk:portType name="client:FulfillmentProcessCallback"/>
+        </plnk:role>
+    </plnk:partnerLinkType>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://xmlns.oracle.com/ns/fulfillment"
+             xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:client="http://xmlns.oracle.com/POProcessing/POProcessing/FulfillmentProcess"
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <import namespace="http://xmlns.oracle.com/ns/fulfillment" schemaLocation="xsd/fulfillment.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="FulfillmentProcessResponseMessage">
+        <wsdl:part name="payload" element="ns1:CarrierSelection"/>
+    </wsdl:message>
+    <wsdl:message name="FulfillmentProcessRequestMessage">
+        <wsdl:part name="payload" element="ns1:Fulfillment"/>
+    </wsdl:message>
+    <wsdl:portType name="FulfillmentProcessCallback">
+        <wsdl:operation name="processResponse">
+            <wsdl:input message="client:FulfillmentProcessResponseMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:portType name="FulfillmentProcess">
+        <wsdl:operation name="process">
+            <wsdl:input message="client:FulfillmentProcessRequestMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,120 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="/customersdo/common/types/"
+     xmlns:tns="/customersdo/common/types/" xmlns:ns0="/customersdo/common/" xmlns:ns1="http://xmlns.oracle.com/adf/svc/types/">
+    <import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="classpath:/META-INF/wsdl/BC4JService.xsd"/>
+    <import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="classpath:/META-INF/wsdl/BC4JServiceCS.xsd"/>
+    <import namespace="/customersdo/common/" schemaLocation="../CustomersViewSDO.xsd"/>
+    <element name="getCustomersView1">
+        <complexType>
+            <sequence>
+                <element name="customerId" type="string"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="getCustomersView1Response">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:CustomersViewSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="createCustomersView1">
+        <complexType>
+            <sequence>
+                <element name="customersView1" type="ns0:CustomersViewSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="createCustomersView1Response">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:CustomersViewSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="updateCustomersView1">
+        <complexType>
+            <sequence>
+                <element name="customersView1" type="ns0:CustomersViewSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="updateCustomersView1Response">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:CustomersViewSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="deleteCustomersView1">
+        <complexType>
+            <sequence>
+                <element name="customersView1" type="ns0:CustomersViewSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="deleteCustomersView1Response">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="mergeCustomersView1">
+        <complexType>
+            <sequence>
+                <element name="customersView1" type="ns0:CustomersViewSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="mergeCustomersView1Response">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:CustomersViewSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findCustomersView1">
+        <complexType>
+            <sequence>
+                <element name="findCriteria" type="ns1:FindCriteria"/>
+                <element name="findControl" type="ns1:FindControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findCustomersView1Response">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:CustomersViewSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="processCustomersView1">
+        <complexType>
+            <sequence>
+                <element name="changeOperation" type="string"/>
+                <element name="customersView1" type="ns0:CustomersViewSDO" minOccurs="0" maxOccurs="unbounded"/>
+                <element name="processControl" type="ns1:ProcessControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="processCustomersView1Response">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:CustomersViewSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="processCSCustomersView1">
+        <complexType>
+            <sequence>
+                <element name="processData" type="ns1:ProcessData"/>
+                <element name="processControl" type="ns1:ProcessControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="processCSCustomersView1Response">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns1:ProcessData"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

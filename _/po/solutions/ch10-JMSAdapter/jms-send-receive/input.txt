@@ -1,0 +1,33 @@
+===================================
+sample execution
+===================================
+
+C:\stage\jms-send-receive>java -version
+java version "1.6.0_11"
+Java(TM) SE Runtime Environment (build 1.6.0_11-b03)
+Java HotSpot(TM) Client VM (build 11.0-b16, mixed mode)
+
+C:\stage\jms-send-receive>java Send jms/demoFulfillmentQueue "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Fulfillment xmlns:ns1=\"http://xmlns.oracle.com/ns/fulfillment\" xmlns=\"http://xmlns.oracle.com/ns/fulfillment\"><ns1:customerId>1111</ns1:customerId><ns1:orderId>2222</ns1:orderId><ns1:total>1000</ns1:total></Fulfillment>"
+
+-----------------------------------------------------------
+Oracle Enterprise Messaging Services - sample JMS Send
+-----------------------------------------------------------
+
+destination: SOAJMSModule!demoFulfillmentQueue
+message    :
+
+<?xml version="1.0" encoding="UTF-8" ?><Fulfillment xmlns:ns1="http://xmlns.oracle.com/ns/fulfillment" xmlns="http://xmlns.oracle.com/ns/fulfillment"><ns1:customerId>1111</ns1:customerId><ns1:orderId>2222</ns1:orderId><ns1:total>1000</ns1:total></Fulfillment>
+
+...message sent!
+
+
+C:\stage\jms-send-receive>
+
+
+===================================
+sample input
+===================================
+
+<?xml version=\"1.0\" encoding=\"UTF-8\" ?><Fulfillment xmlns:ns1=\"http://xmlns.oracle.com/ns/fulfillment\" xmlns=\"http://xmlns.oracle.com/ns/fulfillment\"><ns1:customerId>1111</ns1:customerId><ns1:orderId>2222</ns1:orderId><ns1:total>1000</ns1:total></Fulfillment>
+
+<?xml version=\"1.0\" encoding=\"UTF-8\" ?><CarrierSelection xmlns:ns1=\"http://xmlns.oracle.com/ns/fulfillment\" xmlns=\"http://xmlns.oracle.com/ns/fulfillment\"><ns1:carrier>message sent</ns1:carrier></CarrierSelection>

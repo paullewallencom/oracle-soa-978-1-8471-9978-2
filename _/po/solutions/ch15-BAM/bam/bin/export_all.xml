@@ -1,0 +1,4 @@
+<OracleBAMCommands ContinueOnError="1">
+  <Export type="DataObject" dependencies="1" match="/Training/End2End-105-POProcessing/*" file="../data_objects/exported_data_objects.xml" />
+  <Export type="Report" match="/Training/End2End-105-POProcessing/*" file="../reports/exported_reports.xml" />
+</OracleBAMCommands>

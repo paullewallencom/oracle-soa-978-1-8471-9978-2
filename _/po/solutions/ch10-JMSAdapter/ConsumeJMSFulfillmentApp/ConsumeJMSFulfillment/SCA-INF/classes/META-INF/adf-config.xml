@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adf-config xmlns="http://xmlns.oracle.com/adf/config"
+            xmlns:adf="http://xmlns.oracle.com/adf/config/properties">
+  <adf:adf-properties-child xmlns="http://xmlns.oracle.com/adf/config/properties">
+    <adf-property name="adfAppUID" value="ConsumeJMSFulfillmentApp-5625"/>
+  </adf:adf-properties-child>
+  <adf-mds-config xmlns="http://xmlns.oracle.com/adf/mds/config">
+    <mds-config xmlns="http://xmlns.oracle.com/mds/config">
+      
+    
+      <persistence-config>
+        
+        
+        <metadata-namespaces/>
+        
+        
+        <metadata-store-usages/>
+        
+    
+      </persistence-config>
+      
+
+    </mds-config>
+  </adf-mds-config>
+</adf-config>

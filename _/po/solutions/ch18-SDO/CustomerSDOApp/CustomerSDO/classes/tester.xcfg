@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="customersdo.CustomerSDOAppModule">
+      <AppModuleConfig name="123BF065380" IsLazyLoadingTrue="true" BC4JConfigName="CustomerSDOAppModuleLocal" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="soademo" jbo.project="customersdo.CustomerSDO" ApplicationName="customersdo.CustomerSDOAppModule" DeployPlatform="LOCAL">
+         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="Oracle"/>
+         <Security AppModuleJndiName="customersdo.CustomerSDOAppModule"/>
+         <Tester FullProxyInterfaceName="customersdo.common.CustomerSDOAppModule"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

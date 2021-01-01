@@ -1,0 +1,33 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/getCreditValidation" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/top/getCreditValidation" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="CreditcardinfoCollection" type="CreditcardinfoCollection"/>
+   <xs:complexType name="CreditcardinfoCollection">
+      <xs:sequence>
+         <xs:element name="Creditcardinfo" type="Creditcardinfo" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="Creditcardinfo">
+      <xs:sequence>
+         <xs:element name="ccnumber">
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="20"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+         <xs:element name="status" minOccurs="0">
+            <xs:simpleType>
+               <xs:restriction base="xs:string">
+                  <xs:maxLength value="20"/>
+               </xs:restriction>
+            </xs:simpleType>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="getCreditValidationSelect_ccnbInputParameters" type="getCreditValidationSelect_ccnb"/>
+   <xs:complexType name="getCreditValidationSelect_ccnb">
+      <xs:sequence>
+         <xs:element name="ccnb" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

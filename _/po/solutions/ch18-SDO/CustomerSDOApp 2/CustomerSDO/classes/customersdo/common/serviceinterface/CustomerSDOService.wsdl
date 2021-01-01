@@ -1,0 +1,216 @@
+<wsdl:definitions
+     name="CustomerSDOService"
+     targetNamespace="/customersdo/common/"
+     xmlns:errors="http://xmlns.oracle.com/adf/svc/errors/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="/customersdo/common/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:types="/customersdo/common/types/"
+    >
+    <wsdl:import namespace="http://xmlns.oracle.com/adf/svc/errors/" location="classpath:/META-INF/wsdl/ServiceException.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="/customersdo/common/types/" schemaLocation="CustomerSDOService.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="CustomerSDOService_getCustomersView1">
+        <wsdl:part name="parameters" element="types:getCustomersView1"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_getCustomersView1Response">
+        <wsdl:part name="parameters" element="types:getCustomersView1Response"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_createCustomersView1">
+        <wsdl:part name="parameters" element="types:createCustomersView1"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_createCustomersView1Response">
+        <wsdl:part name="parameters" element="types:createCustomersView1Response"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_updateCustomersView1">
+        <wsdl:part name="parameters" element="types:updateCustomersView1"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_updateCustomersView1Response">
+        <wsdl:part name="parameters" element="types:updateCustomersView1Response"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_deleteCustomersView1">
+        <wsdl:part name="parameters" element="types:deleteCustomersView1"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_deleteCustomersView1Response">
+        <wsdl:part name="parameters" element="types:deleteCustomersView1Response"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_mergeCustomersView1">
+        <wsdl:part name="parameters" element="types:mergeCustomersView1"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_mergeCustomersView1Response">
+        <wsdl:part name="parameters" element="types:mergeCustomersView1Response"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_findCustomersView1">
+        <wsdl:part name="parameters" element="types:findCustomersView1"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_findCustomersView1Response">
+        <wsdl:part name="parameters" element="types:findCustomersView1Response"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_processCustomersView1">
+        <wsdl:part name="parameters" element="types:processCustomersView1"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_processCustomersView1Response">
+        <wsdl:part name="parameters" element="types:processCustomersView1Response"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_processCSCustomersView1">
+        <wsdl:part name="parameters" element="types:processCSCustomersView1"/>
+    </wsdl:message>
+    <wsdl:message name="CustomerSDOService_processCSCustomersView1Response">
+        <wsdl:part name="parameters" element="types:processCSCustomersView1Response"/>
+    </wsdl:message>
+    <wsdl:portType name="CustomerSDOService">
+        <wsdl:documentation>
+            <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="CustomersView1" SDOName="tns:CustomersViewSDO"
+                 CreateOpName="createCustomersView1" UpdateOpName="updateCustomersView1" DeleteOpName="deleteCustomersView1"
+                 MergeOpName="mergeCustomersView1" GetOpName="getCustomersView1" FindOpName="findCustomersView1"
+                 ProcessOpName="processCustomersView1" ProcessCSOpName="processCSCustomersView1"/>
+        </wsdl:documentation>
+        <wsdl:operation name="getCustomersView1">
+            <wsdl:input message="tns:CustomerSDOService_getCustomersView1"/>
+            <wsdl:output message="tns:CustomerSDOService_getCustomersView1Response"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="createCustomersView1">
+            <wsdl:input message="tns:CustomerSDOService_createCustomersView1"/>
+            <wsdl:output message="tns:CustomerSDOService_createCustomersView1Response"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateCustomersView1">
+            <wsdl:input message="tns:CustomerSDOService_updateCustomersView1"/>
+            <wsdl:output message="tns:CustomerSDOService_updateCustomersView1Response"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCustomersView1">
+            <wsdl:input message="tns:CustomerSDOService_deleteCustomersView1"/>
+            <wsdl:output message="tns:CustomerSDOService_deleteCustomersView1Response"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="mergeCustomersView1">
+            <wsdl:input message="tns:CustomerSDOService_mergeCustomersView1"/>
+            <wsdl:output message="tns:CustomerSDOService_mergeCustomersView1Response"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="findCustomersView1">
+            <wsdl:input message="tns:CustomerSDOService_findCustomersView1"/>
+            <wsdl:output message="tns:CustomerSDOService_findCustomersView1Response"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="processCustomersView1">
+            <wsdl:input message="tns:CustomerSDOService_processCustomersView1"/>
+            <wsdl:output message="tns:CustomerSDOService_processCustomersView1Response"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="processCSCustomersView1">
+            <wsdl:input message="tns:CustomerSDOService_processCSCustomersView1"/>
+            <wsdl:output message="tns:CustomerSDOService_processCSCustomersView1Response"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CustomerSDOServiceSoapHttp" type="tns:CustomerSDOService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getCustomersView1">
+            <soap:operation soapAction="/customersdo/common/getCustomersView1"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="createCustomersView1">
+            <soap:operation soapAction="/customersdo/common/createCustomersView1"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateCustomersView1">
+            <soap:operation soapAction="/customersdo/common/updateCustomersView1"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteCustomersView1">
+            <soap:operation soapAction="/customersdo/common/deleteCustomersView1"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="mergeCustomersView1">
+            <soap:operation soapAction="/customersdo/common/mergeCustomersView1"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="findCustomersView1">
+            <soap:operation soapAction="/customersdo/common/findCustomersView1"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="processCustomersView1">
+            <soap:operation soapAction="/customersdo/common/processCustomersView1"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="processCSCustomersView1">
+            <soap:operation soapAction="/customersdo/common/processCSCustomersView1"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CustomerSDOService">
+        <wsdl:port name="CustomerSDOServiceSoapHttpPort" binding="tns:CustomerSDOServiceSoapHttp">
+            <soap:address location="http://localhost:7101/CustomerSDOApp-CustomerSDO-context-root/CustomerSDOService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

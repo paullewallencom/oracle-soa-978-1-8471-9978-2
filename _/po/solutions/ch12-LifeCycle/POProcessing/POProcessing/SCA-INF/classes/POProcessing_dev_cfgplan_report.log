@@ -1,0 +1,46 @@
+Modified Composite [ POProcessing ]
+	Component
+	  Component  [ approveLargeOrder ]
+	    Property [ partnerLink.ManualApproval.OracleRules1_DecisionService_1.DecisionService ]
+		No change in old and new value null 
+	    Property [ partnerLink.ManualApproval.OracleRules1_DecisionService_1.wsdlRuntimeLocation ]
+		No change in old and new value http://${hostname}:${http_port}/rules/${domain_id}/${process_id}/${process_revision}/null/null?WSDL 
+	    Property [ partnerLink.ManualApproval.OracleRules1_DecisionService_1.decisionServiceDetails ]
+		No change in old and new value http://${hostname}:${http_port}/rules/${domain_id}/${process_id}/${process_revision}/null/public_html/GetDecisionServiceInfo.jsp 
+	    Property [ partnerLink.ManualApproval.OracleRules1_DecisionService_1.optSoapShortcut ]
+		No change in old and new value False 
+	Service
+	  Service  [ receivePO ]
+	    Service Bindings
+	  	Binding  [ ws ]
+	Attribute name=port
+		No change in old and new value http://oracle.com/sca/soapservice/POProcessing/POProcessing/receivePO#wsdl.endpoint(receivePO/execute_pt) 
+	Reference
+	  Reference  [ WriteApprovalResults ]
+	    Reference Bindings
+	  	Binding  [ jca ]
+	    Property [ FileNamingConvention ]
+		Old [ test_%SEQ%.xml ] 
+		New [ orderoutput_%SEQ%.xml ] 
+	  Reference  [ getCreditCardStatus ]
+	    Reference Bindings
+	  	Binding  [ ws ]
+	Attribute name=port
+		No change in old and new value http://oracle.com/sca/soapservice/CreditCardValidation/validationForCC/getStatusByCC#wsdl.endpoint(getStatusByCC/execute_pt) 
+	Attribute name=location
+		No change in old and new value http://localhost:8001/soa-infra/services/default/validationForCC/getStatusByCC?WSDL 
+	  Reference  [ JMS_USPS ]
+	    Reference Bindings
+	  	Binding  [ jca ]
+	  Reference  [ JMS_UPS ]
+	    Reference Bindings
+	  	Binding  [ jca ]
+	  Reference  [ JMS_FedEx ]
+	    Reference Bindings
+	  	Binding  [ jca ]
+---End Match for composite [ POProcessing ] in config plan---
+Checking for replacement in wsdl and schema files
+	WSDL WriteApprovalResults_file.jca JCA properties 
+	Property [ PhysicalDirectory ]
+		Old Value [ c:\temp ] 
+		New Value [ c:\tmp\out ] 

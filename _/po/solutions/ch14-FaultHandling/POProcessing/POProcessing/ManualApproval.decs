@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<decisionServices xmlns="http://xmlns.oracle.com/bpel/rules" name="ManualApproval">
+    <ruleEngineProvider name="OracleRulesSDK" provider="Oracle_11.0.0.0.0">
+        <repository type="SCA-Archive">
+            <path>POProcessing/oracle/rules/poprocessing/ManualApproval.rules</path>
+        </repository>
+    </ruleEngineProvider>
+    <decisionService targetNamespace="http://xmlns.oracle.com/ManualApproval/OracleRules1_DecisionService_1" ruleEngineProviderReference="OracleRulesSDK" name="OracleRules1_DecisionService_1">
+        <catalog>ManualApproval</catalog>
+        <pattern name="CallFunctionStateless">
+            <arguments>
+                <call>poprocessing.ManualApproval.OracleRules1_DecisionService_1</call>
+            </arguments>
+        </pattern>
+        <pattern name="CallFunctionStateful">
+            <arguments>
+                <call>poprocessing.ManualApproval.OracleRules1_DecisionService_1</call>
+            </arguments>
+        </pattern>
+    </decisionService>
+</decisionServices>

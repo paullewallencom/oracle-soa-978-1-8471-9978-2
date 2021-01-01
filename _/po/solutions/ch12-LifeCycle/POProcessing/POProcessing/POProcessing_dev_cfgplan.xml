@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAConfigPlan xmlns:jca="http://platform.integration.oracle/blocks/adapter/fw/metadata" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy" xmlns="http://schemas.oracle.com/soa/configplan">
+   <composite name="POProcessing">
+      <!--Add search and replace rules for the import section of a composite
+	Example:
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888</search>
+		<replace>8889</replace>
+	<searchReplace>-->
+      <import>
+         <searchReplace>
+            <search/>
+            <replace/>
+         </searchReplace>
+      </import>
+      <service name="receivePO">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://oracle.com/sca/soapservice/POProcessing/POProcessing/receivePO#wsdl.endpoint(receivePO/execute_pt)</replace>
+            </attribute>
+         </binding>
+      </service>
+      <!--Add search and replace rules for the component properties
+	For components and service/reference bindings, you can add policy references.
+	Example:
+	<component name="*">
+		<wsp:PolicyReference orawsp:category="management" orawsp:status="enabled" URI="oracle/log_policy"/>
+	</component>-->
+      <component name="approveLargeOrder">
+         <property name="partnerLink.ManualApproval.OracleRules1_DecisionService_1.DecisionService">
+            <replace></replace>
+         </property>
+         <property name="partnerLink.ManualApproval.OracleRules1_DecisionService_1.wsdlRuntimeLocation">
+            <replace>http://${hostname}:${http_port}/rules/${domain_id}/${process_id}/${process_revision}/null/null?WSDL</replace>
+         </property>
+         <property name="partnerLink.ManualApproval.OracleRules1_DecisionService_1.decisionServiceDetails">
+            <replace>http://${hostname}:${http_port}/rules/${domain_id}/${process_id}/${process_revision}/null/public_html/GetDecisionServiceInfo.jsp</replace>
+         </property>
+         <property name="partnerLink.ManualApproval.OracleRules1_DecisionService_1.optSoapShortcut">
+            <replace>False</replace>
+         </property>
+      </component>
+      <reference name="WriteApprovalResults">
+         <!--Add search and replace rules for the binding properties-->
+         <binding type="jca">
+            <property name="FileNamingConvention">
+               <replace>orderoutput_%SEQ%.xml</replace>
+            </property>
+         </binding>
+      </reference>
+      <reference name="getCreditCardStatus">
+         <binding type="ws">
+            <attribute name="port">
+               <replace>http://oracle.com/sca/soapservice/CreditCardValidation/validationForCC/getStatusByCC#wsdl.endpoint(getStatusByCC/execute_pt)</replace>
+            </attribute>
+            <attribute name="location">
+               <replace>http://localhost:8001/soa-infra/services/default/validationForCC/getStatusByCC?WSDL</replace>
+            </attribute>
+         </binding>
+      </reference>
+      <reference name="JMS_USPS">
+         <binding type="jca"/>
+      </reference>
+      <reference name="JMS_UPS">
+         <binding type="jca"/>
+      </reference>
+      <reference name="JMS_FedEx">
+         <binding type="jca"/>
+      </reference>
+   </composite>
+   <!--Add search and replace rules for wsdls, xsd and jca files
+	Example:
+	<jca:property name="PollingInterval"><replace>10</replace></jca:property>
+	<searchReplace>
+		<search>http://my-dev-server</search>
+		<replace>http://my-test-server</replace>
+	<searchReplace>
+	<searchReplace>
+		<search>8888
+		<replace>8889</replace>
+	<searchReplace>
+	or provide a new replace value like:
+	<replace>http://my-new-server:8889/myservice</replace>-->
+   <wsdlAndSchema name="xsd/po.xsd|xsd/internalorder.xsd|xsd/ManualPOApprovalWorkflowTask.xsd|xsd/ManualPOApprovalPayload.xsd|xsd/TaskStateMachine.xsd|xsd/TaskEvidenceService.xsd|xsd/TaskSequenceChanges.xsd|xsd/WorkflowCommon.xsd|xsd/OrderBookingDiscount.xsd|xsd/OracleRules1_DecisionService_1Types.xsd|xsd/fulfillment.xsd|xsd/OracleRulesFulfillmentTypes.xsd|receivePO.wsdl|WriteApprovalResults.wsdl|WriteApprovalResults_file.jca|approveLargeOrder.wsdl|getStatusByCCRef.wsdl|OracleRules1_DecisionService_1.wsdl|OracleRulesFulfillment.wsdl|FulfillmentProcess.wsdl|OracleRulesFulfillmentRef.wsdl|JMS_USPS.wsdl|JMS_USPS_jms.jca|JMS_UPS.wsdl|JMS_UPS_jms.jca|JMS_FedEx.wsdl|JMS_FedEx_jms.jca">
+     <jca:property name="PhysicalDirectory">
+       <replace>c:\tmp\out</replace>
+      </jca:property>
+      <searchReplace>
+         <search/>
+         <replace/>
+      </searchReplace>
+   </wsdlAndSchema>
+</SOAConfigPlan>

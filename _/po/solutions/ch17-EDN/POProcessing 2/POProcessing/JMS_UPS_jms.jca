@@ -1,0 +1,13 @@
+<adapter-config name="JMS_UPS" adapter="Jms Adapter" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/Queue/demo" UIConnectionName="MyAppServerConnection" UIJmsProvider="WLSJMS" adapterRef=""/>
+  <endpoint-interaction portType="Produce_Message_ptt" operation="Produce_Message">
+    <interaction-spec className="oracle.tip.adapter.jms.outbound.JmsProduceInteractionSpec">
+      <property name="DestinationName" value="jms/demoFulfillmentQueue"/>
+      <property name="DeliveryMode" value="Persistent"/>
+      <property name="TimeToLive" value="0"/>
+      <property name="PayloadType" value="TextMessage"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

@@ -1,0 +1,13 @@
+<adapter-config name="getCreditValidation" adapter="Database Adapter" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory location="eis/DB/soademoDatabase" UIConnectionName="soademoDatabase" adapterRef=""/>
+  <endpoint-interaction portType="getCreditValidation_ptt" operation="getCreditValidationSelect">
+    <interaction-spec className="oracle.tip.adapter.db.DBReadInteractionSpec">
+      <property name="DescriptorName" value="getCreditValidation.Creditcardinfo"/>
+      <property name="QueryName" value="getCreditValidationSelect"/>
+      <property name="MappingsMetaDataURL" value="getCreditValidation-or-mappings.xml"/>
+      <property name="ReturnSingleResultSet" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

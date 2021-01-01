@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<definitions xmlns="http://schemas.oracle.com/events/edl" targetNamespace="http://schemas.oracle.com/events/edl/POEvents">
+    <schema-import namespace="http://xmlns.oracle.com/ns/order" location="xsd/po.xsd"/>
+    <event-definition name="NewPO">
+        <content xmlns:ns0="http://xmlns.oracle.com/ns/order" element="ns0:PurchaseOrder"/>
+    </event-definition>
+</definitions>

@@ -1,0 +1,3 @@
+<OracleBAMCommands ContinueOnError="1">
+  <Clear type="DataObject" name="/Training/End2End-105-POProcessing/Orders"  />
+</OracleBAMCommands>

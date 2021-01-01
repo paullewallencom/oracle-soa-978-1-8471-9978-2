@@ -1,0 +1,24 @@
+<Dictionary>
+   <word>
+      <synonym>prodName</synonym>
+      <synonym>productName</synonym>
+	  <synonym>product</synonym>
+   </word>
+   <word>
+      <synonym>qty</synonym>
+      <synonym>quantity</synonym>
+   </word>
+   <word>
+      <synonym>custID</synonym>
+      <synonym>customerID</synonym>
+	  <synonym>cust</synonym>
+   </word>
+   <word>
+      <synonym>ccType</synonym>
+      <synonym>cardType</synonym>
+   </word>
+   <word>
+      <synonym>ccNumber</synonym>
+      <synonym>cardNumber</synonym>
+   </word>
+</Dictionary>

@@ -1,0 +1,6 @@
+Fault Details
+===============================================================
+Fault Type ................ mediator
+Poilcy ID ................. POProcessingFaults
+Faulted Partner Link ...... WriteApprovalResults
+Port Type ................. null

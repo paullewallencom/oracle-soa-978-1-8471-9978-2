@@ -1,0 +1,129 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Thu Sep 10 11:35:14 PDT 2009
+  Author:  SOAPM
+  Purpose: Asynchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="approveLargeOrder"
+         targetNamespace="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder"
+         xmlns="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:client="http://xmlns.oracle.com/POProcessing/POProcessing/approveLargeOrder"
+         xmlns:ora="http://schemas.oracle.com/xpath/extension"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:xpath20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer/"
+         xmlns:task="http://xmlns.oracle.com/bpel/workflow/task"
+         xmlns:taskservice="http://xmlns.oracle.com/bpel/workflow/taskService"
+         xmlns:wfcommon="http://xmlns.oracle.com/bpel/workflow/common"
+         xmlns:wf="http://schemas.oracle.com/bpel/extension/workflow"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:ns1="http://oracle.com/sca/soapservice/CreditCardValidation/validationForCC/getStatusByCC"
+         xmlns:ns2="http://xmlns.oracle.com/ns/order"
+         xmlns:ns3="http://www.globalcompany.com/ns/CCAuthorizationService"
+         xmlns:mhdr="http://www.oracle.com/XSL/Transform/java/oracle.tip.mediator.service.common.functions.MediatorExtnFunction"
+         xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:med="http://schemas.oracle.com/mediator/xpath"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:socket="http://www.oracle.com/XSL/Transform/java/oracle.tip.adapter.socket.ProtocolTranslator">
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+    <partnerLinks>
+        <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+        <partnerLink name="approvelargeorder_client" partnerLinkType="client:approveLargeOrder" myRole="approveLargeOrderProvider" partnerRole="approveLargeOrderRequester"/>
+        <partnerLink name="getCreditCardStatus" partnerRole="execute_ptt"
+                     partnerLinkType="ns1:getCreditCardStatus"/>
+    </partnerLinks>
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        VARIABLES                                                        
+        List of messages and XML documents used within this BPEL process 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <variables>
+        <!-- Reference to the message passed as input during initiation -->
+        <variable name="inputVariable" messageType="client:approveLargeOrderRequestMessage"/>
+
+        <!-- Reference to the message that will be sent back to the requester during callback -->
+        <variable name="outputVariable" messageType="client:approveLargeOrderResponseMessage"/>
+        <variable name="invokeCCStatusService_execute_InputVariable"
+                  messageType="ns1:requestMessage"/>
+        <variable name="invokeCCStatusService_execute_OutputVariable"
+                  messageType="ns1:replyMessage"/>
+    </variables>
+
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+       ORCHESTRATION LOGIC                                               
+       Set of activities coordinating the flow of messages across the    
+       services integrated within this business process                  
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    -->
+    <sequence name="main">
+        <!-- Receive input from requestor. (Note: This maps to operation defined in approveLargeOrder.wsdl) -->
+        <receive name="receiveInput" partnerLink="approvelargeorder_client" portType="client:approveLargeOrder" operation="process" variable="inputVariable" createInstance="yes"/>
+
+        <!-- 
+          Asynchronous callback to the requester. (Note: the callback location and correlation id is transparently handled using WS-addressing.)
+        -->
+        <assign name="assignCCNumber">
+            <copy>
+                <from variable="inputVariable" part="payload"
+                      query="/ns2:Order/ns2:creditCardInfo/ns2:cardNumber"/>
+                <to variable="invokeCCStatusService_execute_InputVariable"
+                    part="request"
+                    query="/ns3:creditcardStatusRequest/ns3:CCNumber"/>
+            </copy>
+            <copy>
+                <from variable="inputVariable" part="payload"
+                      query="/ns2:Order"/>
+                <to variable="outputVariable" part="payload"
+                    query="/ns2:Order"/>
+            </copy>
+        </assign>
+        <invoke name="invokeCCStatusService"
+                inputVariable="invokeCCStatusService_execute_InputVariable"
+                outputVariable="invokeCCStatusService_execute_OutputVariable"
+                partnerLink="getCreditCardStatus" portType="ns1:execute_ptt"
+                operation="execute"/>
+        <switch name="EvaluateCCStatus">
+            <case condition="bpws:getVariableData('invokeCCStatusService_execute_OutputVariable','reply','/ns3:creditcardStatus') ='VALID' ">
+                <assign name="assignApproval">
+                    <copy>
+                        <from expression="'approved'"/>
+                        <to variable="outputVariable" part="payload"
+                            query="/ns2:Order/ns2:status"/>
+                    </copy>
+                </assign>
+            </case>
+            <otherwise>
+                <assign name="assignInvalidCC">
+                    <copy>
+                        <from expression="'invalidCreditCard'"/>
+                        <to variable="outputVariable" part="payload"
+                            query="/ns2:Order/ns2:status"/>
+                    </copy>
+                </assign>
+            </otherwise>
+        </switch>
+        <invoke name="callbackClient" partnerLink="approvelargeorder_client" portType="client:approveLargeOrderCallback" operation="processResponse" inputVariable="outputVariable"/>
+    </sequence>
+</process>

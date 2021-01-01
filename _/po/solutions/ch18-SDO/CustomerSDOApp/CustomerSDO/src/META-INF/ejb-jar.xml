@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'windows-1252'?>
+<ejb-jar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/j2ee/ejb-jar_3_0.xsd" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee">
+  <enterprise-beans>
+    <session>
+      <ejb-name>customersdo.common.CustomerSDOServiceBean</ejb-name>
+      <resource-ref>
+        <res-ref-name>jdbc/soademoDS</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+      </resource-ref>
+    </session>
+  </enterprise-beans>
+</ejb-jar>

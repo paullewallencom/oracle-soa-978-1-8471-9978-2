@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toplink:object-persistence version="Oracle TopLink - 11g Release 1 (11.1.1.1.0) (Build 090527)" xmlns:opm="http://xmlns.oracle.com/ias/xsds/opm" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:toplink="http://xmlns.oracle.com/ias/xsds/toplink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <opm:name>getCreditValidation-OR</opm:name>
+   <opm:class-mapping-descriptors>
+      <opm:class-mapping-descriptor xsi:type="toplink:object-relational-class-mapping-descriptor">
+         <opm:class>getCreditValidation.Creditcardinfo</opm:class>
+         <opm:alias>CREDITCARDINFO</opm:alias>
+         <opm:primary-key>
+            <opm:field table="CREDITCARDINFO" name="CCNUMBER" xsi:type="opm:column"/>
+         </opm:primary-key>
+         <opm:events xsi:type="toplink:event-policy"/>
+         <opm:querying xsi:type="toplink:query-policy">
+            <opm:queries>
+               <opm:query name="getCreditValidationSelect" xsi:type="toplink:read-all-query">
+                  <opm:criteria operator="equal" xsi:type="toplink:relation-expression">
+                     <toplink:left name="ccnumber" xsi:type="toplink:query-key-expression">
+                        <toplink:base xsi:type="toplink:base-expression"/>
+                     </toplink:left>
+                     <toplink:right xsi:type="toplink:parameter-expression">
+                        <toplink:parameter name="ccnb" xsi:type="opm:column"/>
+                     </toplink:right>
+                  </opm:criteria>
+                  <opm:arguments>
+                     <opm:argument name="ccnb">
+                        <opm:type>java.lang.String</opm:type>
+                     </opm:argument>
+                  </opm:arguments>
+                  <toplink:reference-class>getCreditValidation.Creditcardinfo</toplink:reference-class>
+                  <toplink:container xsi:type="toplink:list-container-policy">
+                     <toplink:collection-type>java.util.Vector</toplink:collection-type>
+                  </toplink:container>
+               </opm:query>
+            </opm:queries>
+         </opm:querying>
+         <opm:attribute-mappings>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>ssn</opm:attribute-name>
+               <opm:properties>
+                  <opm:property name="enabled">
+                     <opm:value>false</opm:value>
+                  </opm:property>
+               </opm:properties>
+               <opm:field table="CREDITCARDINFO" name="SSN" xsi:type="opm:column"/>
+               <toplink:attribute-classification>java.lang.String</toplink:attribute-classification>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>firstName</opm:attribute-name>
+               <opm:properties>
+                  <opm:property name="enabled">
+                     <opm:value>false</opm:value>
+                  </opm:property>
+               </opm:properties>
+               <opm:field table="CREDITCARDINFO" name="FIRST_NAME" xsi:type="opm:column"/>
+               <toplink:attribute-classification>java.lang.String</toplink:attribute-classification>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>lastName</opm:attribute-name>
+               <opm:properties>
+                  <opm:property name="enabled">
+                     <opm:value>false</opm:value>
+                  </opm:property>
+               </opm:properties>
+               <opm:field table="CREDITCARDINFO" name="LAST_NAME" xsi:type="opm:column"/>
+               <toplink:attribute-classification>java.lang.String</toplink:attribute-classification>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>ccnumber</opm:attribute-name>
+               <opm:field table="CREDITCARDINFO" name="CCNUMBER" xsi:type="opm:column"/>
+               <toplink:attribute-classification>java.lang.String</toplink:attribute-classification>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>creditrating</opm:attribute-name>
+               <opm:properties>
+                  <opm:property name="enabled">
+                     <opm:value>false</opm:value>
+                  </opm:property>
+               </opm:properties>
+               <opm:field table="CREDITCARDINFO" name="CREDITRATING" xsi:type="opm:column"/>
+               <toplink:attribute-classification>java.math.BigDecimal</toplink:attribute-classification>
+            </opm:attribute-mapping>
+            <opm:attribute-mapping xsi:type="toplink:direct-mapping">
+               <opm:attribute-name>status</opm:attribute-name>
+               <opm:field table="CREDITCARDINFO" name="STATUS" xsi:type="opm:column"/>
+               <toplink:attribute-classification>java.lang.String</toplink:attribute-classification>
+            </opm:attribute-mapping>
+         </opm:attribute-mappings>
+         <toplink:descriptor-type>independent</toplink:descriptor-type>
+         <toplink:caching>
+            <toplink:cache-type>weak-reference</toplink:cache-type>
+            <toplink:always-refresh>true</toplink:always-refresh>
+         </toplink:caching>
+         <toplink:remote-caching>
+            <toplink:cache-type>weak-reference</toplink:cache-type>
+         </toplink:remote-caching>
+         <toplink:instantiation/>
+         <toplink:copying xsi:type="toplink:instantiation-copy-policy"/>
+         <toplink:tables>
+            <toplink:table name="CREDITCARDINFO"/>
+         </toplink:tables>
+         <toplink:structure>structureName</toplink:structure>
+      </opm:class-mapping-descriptor>
+   </opm:class-mapping-descriptors>
+   <toplink:login xsi:type="toplink:database-login">
+      <toplink:platform-class>oracle.toplink.platform.database.oracle.Oracle9Platform</toplink:platform-class>
+      <toplink:user-name></toplink:user-name>
+      <toplink:connection-url>null</toplink:connection-url>
+   </toplink:login>
+</toplink:object-persistence>

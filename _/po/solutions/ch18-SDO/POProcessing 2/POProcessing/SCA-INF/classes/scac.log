@@ -1,0 +1,12 @@
+Sep 17, 2009 4:36:12 PM oracle.adf.share.config.ADFConfigFactory getInstance
+INFO: ADF Config instance implementation in use is : oracle.adf.share.config.MDSConfigFactory
+Sep 17, 2009 4:36:20 PM com.collaxa.cube.CubeLogger info
+INFO: LibClasspath=C:\Oracle\Middleware\jdev_11gR1\jdeveloper\modules\commonj.sdo_2.1.0.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\modules\oracle.fabriccommon_11.1.1\fabric-common.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\modules\oracle.xdk_11.1.0\xmlparserv2.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-common.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-exts.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-thirdparty.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel-validator.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\soa\modules\oracle.soa.bpel_11.1.1\orabpel.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\fabric-ext.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\fabric-runtime.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\oracle.soa.fabric.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\soa\modules\oracle.soa.fabric_11.1.1\soa-infra-tools.jar;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\soa\modules\oracle.soa.ext_11.1.1\./classes;C:\Oracle\Middleware\jdev_11gR1\jdeveloper\soa\modules\oracle.soa.mgmt_11.1.1\soa-infra-mgmt.jar
+Sep 17, 2009 4:36:22 PM com.collaxa.cube.CubeLogger info
+INFO: validating "approveLargeOrder.bpel" ...
+Note: C:\po\POProcessing\POProcessing\SCA-INF\bpel\approveLargeOrder\src\bpel\approvelargeorder\BPEL_BIN.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+Sep 17, 2009 4:36:46 PM com.collaxa.cube.CubeLogger info
+INFO: validating "FulfillmentProcess.bpel" ...
+Note: C:\po\POProcessing\POProcessing\SCA-INF\bpel\FulfillmentProcess\src\bpel\fulfillmentprocess\BPEL_BIN.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.

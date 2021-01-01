@@ -1,0 +1,20 @@
+<xsd:schema targetNamespace="/customersdo/common/" xmlns="/customersdo/common/" elementFormDefault="qualified"
+     sdoJava:package="customersdo.common" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sdoJava="commonj.sdo/java">
+    <xsd:import schemaLocation="classpath:/xml/sdoJava.xsd" namespace="commonj.sdo/java"/>
+    <xsd:complexType name="CustomersViewSDO">
+        <xsd:annotation>
+            <xsd:appinfo source="http://xmlns.oracle.com/adf/svc/metadata/">
+                <key xmlns="http://xmlns.oracle.com/adf/svc/metadata/">
+                    <attribute>CustomerId</attribute>
+                </key>
+            </xsd:appinfo>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="CustomerId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="CustomerName" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="LastOrderNumber" type="xsd:string" minOccurs="0" nillable="true"/>
+            <xsd:element name="LastOrderAmount" type="xsd:decimal" minOccurs="0" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="customersViewSDO" type="CustomersViewSDO"/>
+</xsd:schema>

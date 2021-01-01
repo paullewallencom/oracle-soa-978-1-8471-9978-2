@@ -1,0 +1,6 @@
+Fault Details
+===============================================================
+Fault Type ................ bpel
+Poilcy ID ................. POProcessingFaults
+Faulted Partner Link ...... getCreditCardStatus
+Port Type ................. {http://oracle.com/sca/soapservice/CreditCardValidation/validationForCC/getStatusByCC}getCreditCardStatus

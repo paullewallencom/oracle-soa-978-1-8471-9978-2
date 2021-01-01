@@ -1,0 +1,27 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://xmlns.oracle.com/ns/fulfillment"
+     xmlns:ful="http://xmlns.oracle.com/ns/fulfillment" attributeFormDefault="qualified" elementFormDefault="qualified">
+    <element name="Fulfillment" type="ful:FulfillmentType"/>
+    <element name="CarrierSelection">
+        <complexType>
+            <sequence>
+                <element name="carrier" type="ful:CarrierValue"/>
+            </sequence>
+        </complexType>
+    </element>
+    <complexType name="FulfillmentType">
+        <sequence>
+            <element name="customerId" type="string"/>
+            <element name="orderId" type="string"/>
+            <element name="total" type="decimal"/>
+        </sequence>
+    </complexType>
+    <simpleType name="CarrierValue">
+        <restriction base="string">
+            <enumeration value="USPS"/>
+            <enumeration value="UPS"/>
+            <enumeration value="FedEx"/>
+            <enumeration value="none"/>
+        </restriction>
+    </simpleType>
+</schema>
